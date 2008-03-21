@@ -1,21 +1,24 @@
-Summary:	UML2 tool box to specify and generate code in C++, Java, IDL and PHP
+Summary:	UML 2 tool box to specify and generate code in C++, Java, IDL, PHP and Python
 Name:		bouml
-Version:	4.1
+Version:	4.2
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://bouml.free.fr
 Source0:	http://bouml.free.fr/%{name}_%{version}.tar.gz
 BuildRequires:	qt3-devel
+%if %{mdkversion} < 200800
 BuildRequires:	desktop-file-utils
+%endif
+Suggests:	bouml-doc = 4.2
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 BOUML is a free Unified Modeling Language (UML 2) tool box allowing you
-to specify and generate code in C++, Java, Idl and Php.
+to specify and generate code in C++, Java, Idl, Php and Python.
 You can use it to create nearly all of UML diagrams.
 BOUML can generate code from those diagrams in
-C++, Java, IDL and PHP, and can also reverse existing code.
+C++, Java, IDL, PHP and Python, and can also reverse existing code.
 
 The program supports class diagrams, sequence diagrams, collaboration diagrams,
 object diagrams, use case diagrams, component diagrams, state diagrams,
@@ -30,10 +33,6 @@ activity diagrams, component diagrams and deployment diagrams.
 %install
 rm -rf %{buildroot}
 %makeinstall BOUML_LIB=%{_libdir}/%{name} DESTDIR=%{buildroot}
-desktop-file-install \
-	--vendor="" \
-	--remove-key Path \
-	--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/%{name}.desktop
 %if %{mdkversion} < 200800
 desktop-file-install \
 	--vendor="" \
