@@ -1,6 +1,6 @@
 Summary:	UML 2 tool box to specify and generate code in C++, Java, IDL, PHP and Python
 Name:		bouml
-Version:	4.2
+Version:	4.3.5
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
@@ -32,7 +32,7 @@ activity diagrams, component diagrams and deployment diagrams.
 
 %install
 rm -rf %{buildroot}
-%makeinstall BOUML_LIB=%{_libdir}/%{name} DESTDIR=%{buildroot}
+make install BOUML_LIB=%{_libdir}/%{name} DESTDIR=%{buildroot}
 %if %{mdkversion} < 200800
 desktop-file-install \
 	--vendor="" \
