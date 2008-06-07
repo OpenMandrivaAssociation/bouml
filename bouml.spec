@@ -1,7 +1,7 @@
 Summary:	UML 2 tool box to specify and generate code in C++, Java, IDL, PHP and Python
 Name:		bouml
 Version:	4.3.5
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://bouml.free.fr
@@ -10,7 +10,7 @@ BuildRequires:	qt3-devel
 %if %{mdkversion} < 200800
 BuildRequires:	desktop-file-utils
 %endif
-Suggests:	bouml-doc = 4.2
+Suggests:	bouml-doc >= 4.3
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
