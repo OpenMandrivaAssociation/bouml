@@ -3,7 +3,7 @@ Name:		bouml
 Version:	4.3.5
 %define file_project_version	4.3
 %define bouml_doc_version	4.3.2
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://bouml.free.fr
@@ -16,7 +16,7 @@ BuildRequires:	qt3-devel
 BuildRequires:	desktop-file-utils
 %endif
 Requires:	xdg-utils
-Suggests:	bouml-doc = %{bouml_doc_version}
+Suggests:	bouml-doc >= 4.3.2-3
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
