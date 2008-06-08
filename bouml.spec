@@ -1,16 +1,22 @@
 Summary:	UML 2 tool box to specify and generate code in C++, Java, IDL, PHP and Python
 Name:		bouml
 Version:	4.3.5
-Release:	%mkrel 2
+%define file_project_version	4.3
+%define bouml_doc_version	4.3.2
+Release:	%mkrel 3
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://bouml.free.fr
 Source0:	http://bouml.free.fr/%{name}_%{version}.tar.gz
+Patch01:	bouml-mandriva-doc-path-fix.patch
+Patch02:	bouml-help-use-xdg-open.patch
+BuildRequires:	gcc-c++
 BuildRequires:	qt3-devel
 %if %{mdkversion} < 200800
 BuildRequires:	desktop-file-utils
 %endif
-Suggests:	bouml-doc >= 4.3
+Requires:	xdg-utils
+Suggests:	bouml-doc = %{bouml_doc_version}
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
@@ -26,19 +32,28 @@ activity diagrams, component diagrams and deployment diagrams.
 
 %prep
 %setup -q -n %{name}_%{version}
+%patch01 -p1 -b .mandriva-doc-path-fix
+%patch02 -p1 -b .help-use-xdg-open
 
 %build
 %make QMAKE=%{qt3dir}/bin/qmake BOUML_LIB=%{_libdir}/%{name}
 
 %install
 rm -rf %{buildroot}
-make install BOUML_LIB=%{_libdir}/%{name} DESTDIR=%{buildroot}
+%makeinstall BOUML_LIB=%{_libdir}/%{name} DESTDIR=%{buildroot}
 %if %{mdkversion} < 200800
 desktop-file-install \
 	--vendor="" \
 	--add-category="X-MandrivaLinux-MoreApplications-Development" \
 	--dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 %endif
+
+cat > README.%{file_project_version}.upgrade.urpmi <<EOF
+Because the format of the BOUML files is changed in BOUML %{file_project_version},
+the previous releases (BOUML < %{file_project_version}) cannot read a project
+saved with this version. Obviously this release is able to read
+the projects made by previous releases of BOUML.
+EOF
 
 %post
 %update_icon_cache hicolor
@@ -53,7 +68,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc README historic.html licence.txt
+%doc README README.*.upgrade.urpmi historic.html licence.txt
 %{_bindir}/%{name}
 %{_bindir}/projectControl
 %{_bindir}/projectSynchro
@@ -72,4 +87,3 @@ rm -rf %{buildroot}
 %{_iconsdir}/hicolor/64x64/apps/%{name}.png
 %{_iconsdir}/hicolor/64x64/apps/projectControl.png
 %{_iconsdir}/hicolor/64x64/apps/projectSynchro.png
-
