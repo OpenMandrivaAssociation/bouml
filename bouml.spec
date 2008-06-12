@@ -55,13 +55,17 @@ saved with this version. Obviously this release is able to read
 the projects made by previous releases of BOUML.
 EOF
 
+%if %mdkversion < 200900
 %post
 %update_icon_cache hicolor
 %{update_menus}
+%endif
 
+%if %mdkversion < 200900
 %postun
 %update_icon_cache hicolor
 %{clean_menus}
+%endif
 
 %clean
 rm -rf %{buildroot}
