@@ -1,9 +1,9 @@
 Summary:	UML 2 tool box to specify and generate code in C++, Java, IDL, PHP and Python
 Name:		bouml
-Version:	4.5.1
-%define file_project_version	4.5
-%define bouml_doc_version	4.5
-Release:	%mkrel 2
+Version:	4.11
+%define file_project_version	4.11
+%define bouml_doc_version	4.9
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://bouml.free.fr
@@ -36,7 +36,7 @@ activity diagrams, component diagrams and deployment diagrams.
 %patch02 -p1 -b .help-use-xdg-open
 
 %build
-%make QMAKE=%{qt3dir}/bin/qmake BOUML_LIB=%{_libdir}/%{name}
+%make QTDIR=%{qt3dir} QMAKE=%{qt3dir}/bin/qmake BOUML_LIB=%{_libdir}/%{name}
 
 %install
 rm -rf %{buildroot}
