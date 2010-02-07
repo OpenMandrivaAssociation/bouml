@@ -1,7 +1,7 @@
 Summary:	UML 2 tool box to specify and generate code in C++, Java, IDL, PHP and Python
 Name:		bouml
-Version:	4.17.1
-%define file_project_version	4.17
+Version:	4.18.1
+%define file_project_version	4.18
 %define bouml_doc_version	4.17
 Release:	%mkrel 1
 License:	GPLv2+
