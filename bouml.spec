@@ -1,13 +1,13 @@
 Summary:	UML 2 tool box to specify and generate code in C++, Java, IDL, PHP and Python
 Name:		bouml
-Version:	4.19
-%define file_project_version	4.18
-%define bouml_doc_version	4.17
+Version:	4.19.1
+%define file_project_version	4.19
+%define bouml_doc_version	4.19
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://bouml.free.fr
-Source0:	http://bouml.free.fr/%{name}_%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/bouml/%{name}_%{version}.tar.gz
 Patch01:	bouml-mandriva-doc-path-fix.patch
 Patch02:	bouml-help-use-xdg-open.patch
 BuildRequires:	gcc-c++
