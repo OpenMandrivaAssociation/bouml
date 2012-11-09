@@ -1,0 +1,12 @@
+diff -Naur bouml_4.3.4.orig/src/dialog/HelpDialog.cpp bouml_4.3.4/src/dialog/HelpDialog.cpp
+--- bouml_4.3.4.orig/src/dialog/HelpDialog.cpp	2008-05-09 14:56:03.000000000 +0200
++++ bouml_4.3.4/src/dialog/HelpDialog.cpp	2008-05-25 17:45:40.000000000 +0200
+@@ -126,7 +126,7 @@
+ 
+   QString dirs[3];
+   
+-  dirs[1] = "/usr/share/doc/packages/bouml";
++  dirs[1] = "/usr/share/bouml-doc/html";
+   dirs[2] = "/usr/share/doc/bouml";
+ 
+   

@@ -1,0 +1,15 @@
+diff -Naur bouml_4.3.4.orig/src/dialog/HelpDialog.cpp bouml_4.3.4/src/dialog/HelpDialog.cpp
+--- bouml_4.3.4.orig/src/dialog/HelpDialog.cpp	2008-05-09 14:56:03.000000000 +0200
++++ bouml_4.3.4/src/dialog/HelpDialog.cpp	2008-05-25 17:48:32.000000000 +0200
+@@ -132,7 +132,10 @@
+   
+   dirs[0] = ManualDir;
+   DocDir = "";
+-  
++
++  if (NavigatorPath.isEmpty())
++    NavigatorPath = "/usr/bin/xdg-open";
++
+   for (index = (ManualDir.isEmpty()) ? 1 : 0;
+        index != sizeof(dirs)/sizeof(*dirs);
+        index += 1) {
