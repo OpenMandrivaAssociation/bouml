@@ -3,7 +3,7 @@ Name:		bouml
 Version:	4.22.2
 %define file_project_version	4.22
 %define bouml_doc_version	4.21
-Release:	%mkrel 1
+Release:	2
 License:	GPLv2+
 Group:		Development/Other
 URL:		http://bouml.free.fr
