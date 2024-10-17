@@ -6,7 +6,7 @@ Version:	4.22.2
 Release:	2
 License:	GPLv2+
 Group:		Development/Other
-URL:		http://bouml.free.fr
+URL:		https://bouml.free.fr
 Source0:	http://downloads.sourceforge.net/bouml/%{name}_%{version}.tar.gz
 Patch01:	bouml-mandriva-doc-path-fix.patch
 Patch02:	bouml-help-use-xdg-open.patch
